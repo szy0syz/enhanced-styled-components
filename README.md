@@ -23,7 +23,7 @@
 6 directories, 8 files
 ```
 
-```jsx
+```js
 const Article = () => {
   return (
     <Wrapper>
@@ -43,7 +43,7 @@ const Article = () => {
 };
 ```
 
-```jsx
+```js
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -81,4 +81,48 @@ const Button = styled.button`
 `;
 
 export default Button;
+```
+
+## 2-compound
+
+![preview2](./2-compound/preview.png)
+![preview3](./2-compound/gif.gif)
+
+```js
+<Card>
+  <Card.Image src={porrot} />
+  <Card.Body>
+    <Card.Title>Card-Title</Card.Title>
+    <Card.Text className="Text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </Card.Text>
+    <Card.Button>Porrat</Card.Button>
+  </Card.Body>
+</Card>
+```
+
+```js
+export function Card({ classes, children, ...restProps }) {
+  return (
+    <Container className={classnames('card', classes)} {...restProps}>
+      {children}
+    </Container>
+  );
+}
+
+Card.Body = function CardBody({ classes, children, ...restProps }) {
+  return (
+    <Body className={classnames('card__body', classes)} {...restProps}>
+      {children}
+    </Body>
+  );
+};
+
+Card.Title = function CardTitle({ classes, children, ...restProps }) {
+  return (
+    <Title className={classnames('card__title', classes)} {...restProps}>
+      {children}
+    </Title>
+  );
+};
 ```
