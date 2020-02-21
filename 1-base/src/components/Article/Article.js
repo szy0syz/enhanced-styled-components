@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   flex-flow: row nowrap;
 `;
 
-const Artcile = () => {
+const Article = () => {
   return (
     <Wrapper>
       <MainConten>
@@ -41,4 +41,4 @@ const Artcile = () => {
   );
 };
 
-export default Artcile;
+export default Article;

@@ -24,7 +24,7 @@
 ```
 
 ```jsx
-const Artcile = () => {
+const Article = () => {
   return (
     <Wrapper>
       <MainConten>
