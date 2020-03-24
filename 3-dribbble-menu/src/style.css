@@ -1,15 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap");
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Roboto, sans-serif;
-}
-
 .main-navigation {
   align-items: center;
   background-color: #323232;

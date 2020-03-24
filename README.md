@@ -35,7 +35,9 @@ const Article = () => {
           <Button size="large">Click me!</Button>
         </p>
         <Button block>Click me!</Button>
-        <Button block noBorder>Click me!</Button>
+        <Button block noBorder>
+          Click me!
+        </Button>
       </MainConten>
       <SideBar>Siderbar</SideBar>
     </Wrapper>
@@ -50,7 +52,7 @@ const Button = styled.button`
   appearance: none;
   background-color: ${props => props.theme.regalBlue};
   color: white;
-  border: ${props => props.noBorder ? '0' : '1px solid white'};
+  border: ${props => (props.noBorder ? '0' : '1px solid white')};
   padding: 0.25em 0.5em;
   transition: background-color 0.3s, color 0.3s;
 
@@ -69,7 +71,7 @@ const Button = styled.button`
       return `
         display: block;
         width: 100%;
-      `
+      `;
     }
   }}
 
@@ -126,3 +128,105 @@ Card.Title = function CardTitle({ classes, children, ...restProps }) {
   );
 };
 ```
+
+## 3-dribbble-menu
+
+> from html+css to styled-components
+
+### global style
+
+从 style.css 移出全局样式
+
+```js
+const GlobalStyle = createGlobalStyle`
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+`;
+
+render(
+  <>
+    <GlobalStyle>
+      <h1>hello jerry</h1>
+    </GlobalStyle>
+  </>,
+  document.getElementById('app')
+);
+```
+
+### create Anchor component
+
+```js
+const MainNavigationLogoLink = styled.a.attrs({
+  href: '#',
+  onClick: evt => {
+    evt.preventDefault();
+  },
+})`
+  display: flex;
+  height: 100%;
+  margin-right: 20px;
+  transition: opacity 0.2s ease;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
+  > img {
+    margin: auto;
+  }
+`;
+
+const Root = () => {
+  return (
+    <MainNavigation>
+      <MainNavigationLogoLink>
+        <img src={logo} />
+      </MainNavigationLogoLink>
+    </MainNavigation>
+  );
+};
+```
+
+### 关于 hover 的写法
+
+类似这样的 css 在 styled-compoents 里应该如何写呢？
+
+```css
+.main-navigation-item:hover .main-navigation-link-dropdown {
+  display: block;
+}
+```
+
+- `MainNavigationItem` 本该写在上方，但因为const的变量，写在上方会拿不到引用
+- 不就是 hash 值嘛，怎么就拿不到，奇怪
+
+```js
+const MainNavigationLinkDropdown = styled.div`
+  background-color: #333333;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+`;
+
+const MainNavigationItem = styled.div`
+  height: 100%;
+  position: relative;
+
+  :hover ${MainNavigationLinkDropdown} {
+    display: block;
+  }
+`;
+```
+
+> 23:05
