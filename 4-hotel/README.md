@@ -1,68 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hotel
 
-## Available Scripts
+## Notes
 
-In the project directory, you can run:
+```js
+// styles.js
+export const setColor = {
+  primaryColor: "#af9a7d",
+  mainWhite: "#fff",
+  mainBlack: "#222",
+  mainGrey: "#ececec",
+  lightGrey: "#f7f7f7"
+};
 
-### `yarn start`
+export const setFont = {
+  main: "font-family: 'Lato', sans-serif;",
+  slanted: "font-family: 'Courgette', cursive;"
+};
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+// Globals.js
+const Globals = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lato:wght@400;700&display=swap');
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-### `yarn test`
+  body {
+    font-size: 100%;
+    color: ${setColor.mainBlack};
+    background: ${setColor.mainWhite};
+    ${setFont.main}
+    ${setFont.slanted}
+  }
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  h1 {
+    font-size: 3em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
 
-### `yarn build`
+  h2 {
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  h3 {
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 1em;
+  }
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  h4 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin-bottom: 1.25em;
+    font-weight: bold;
+  }
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  h5 {
+    font-size: 1em;
+    margin-bottom: 1.5em;
+    font-weight: bold;
+  }
 
-### `yarn eject`
+  h6 {
+    font-size: 1em;
+    font-weight: bold;
+  }
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  p {
+    line-height: 1.5;
+    margin: 0 0 1.5 0;
+  }
+`;
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 背景图设置
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```js
+export const setBackground = ({
+  img = "https://images.pexels.com/photos/1628086/pexels-photo-1628086.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  color = "rgba(0,0,0,0)"
+} = {}) => {
+  return `background: linear-gradient(${color}, ${color}),
+    url(${img}) center/cover fixed no-repeat`;
+}
+```
