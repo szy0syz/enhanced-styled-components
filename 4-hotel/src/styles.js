@@ -54,6 +54,7 @@ const sizes = {
 };
 
 // Iterate through the sizes and create a media template
+// * 对外输出的是变化好的了对象了
 export const media = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media (min-width: ${sizes[label] / 16}em) {
