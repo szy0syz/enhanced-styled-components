@@ -14,8 +14,8 @@ const animation = keyframes`
   }
 
   100% {
-    opacity: 0;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0%);
   }
 `;
 
@@ -23,17 +23,17 @@ const fadeIn = (start, point, end) => {
   const animation = keyframes`
     0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(${start});
   }
 
   50% {
     opacity: 0.5;
-    transform: translateY(-10%);
+    transform: translateY(${end});
   }
 
   100% {
-    opacity: 0;
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(${end});
   }
   `;
   return css`
