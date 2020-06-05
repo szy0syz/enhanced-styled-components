@@ -32,3 +32,8 @@ export const PrimaryBtn = styled.button`
   };
   cursor: pointer;
 `;
+
+// * 复用上面的组件样式，只是改下 padding 而已
+export const SmallBtn = styled(PrimaryBtn)`
+  padding: ${setRem(9)} ${setRem(12)};
+`
