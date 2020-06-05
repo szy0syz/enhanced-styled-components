@@ -88,3 +88,5 @@ export const setBackground = ({
     url(${img}) center/cover fixed no-repeat`;
 }
 ```
+
+- `styled-components` 包装过的元素天生带 `as="a"` 功能
