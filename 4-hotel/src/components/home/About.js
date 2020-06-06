@@ -15,7 +15,7 @@ import {
 
 const About = () => {
   return (
-    <Section>
+    <Section color={setColor.mainWhite}>
       <AboutCenter>
         <div className="about-img">
           <img src={aboutImg} alt="about us" />
@@ -61,7 +61,7 @@ const AboutCenter = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: ${setRem(32)};
-    .about-img {
+    .about-img, .about-info {
       align-self: center;
     }
     .about-info {

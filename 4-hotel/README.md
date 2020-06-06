@@ -90,3 +90,45 @@ export const setBackground = ({
 ```
 
 - `styled-components` 包装过的元素天生带 `as="a"` 功能
+
+### 精髓
+
+```js
+export default class Rooms extends Component {
+  state = {
+    rooms,
+  };
+
+  render() {
+    return (
+      <Section color={setColor.mainGrey}>
+        <Title title="out rooms" center />
+        <RoomsCenter>
+          {this.state.rooms.map((room) => (
+            <Room key={room.id} room={room} />
+          ))}
+        </RoomsCenter>
+      </Section>
+    );
+  }
+}
+
+const RoomsCenter = styled.div`
+  width: 90vw;
+  margin: 0 auto;
+  ${media.tablet`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: ${setRem(32)};
+  `}
+
+  ${media.desktop`
+    width: 100vw;
+    max-width: 1170px;
+  `}
+
+  ${media.large`
+    grid-template-columns: repeat(3, 1fr);
+  `}
+`;
+```
