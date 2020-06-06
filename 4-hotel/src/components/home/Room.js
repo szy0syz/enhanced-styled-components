@@ -22,7 +22,7 @@ const Room = ({ room, className }) => {
       <div className="room-info">
         <h4>{title}</h4>
         <p>{info}</p>
-        <SmallBtn>Small Btn</SmallBtn>
+        <SmallBtn>Detail</SmallBtn>
       </div>
     </article>
   );

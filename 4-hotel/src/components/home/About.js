@@ -11,6 +11,7 @@ import {
   setBorder,
   setColor,
   setLetterSpacing,
+  setFont,
 } from '../../styles';
 
 const About = () => {
@@ -49,13 +50,14 @@ const AboutCenter = styled.div`
   }
   .about-info {
     p {
+      ${setFont.main}
       ${setLetterSpacing(2.5)};
     }
   }
   width: 90vw;
   margin: 0 auto;
 
-  ${media.desktop`
+  ${media.large`
     width: 100vw;
     max-width: 1170px;
     display: grid;
@@ -63,6 +65,7 @@ const AboutCenter = styled.div`
     grid-column-gap: ${setRem(32)};
     .about-img, .about-info {
       align-self: center;
+      padding: ${setRem(0)};
     }
     .about-info {
       p {

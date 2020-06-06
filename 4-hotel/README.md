@@ -221,3 +221,10 @@ export default styled(Room)`
   }
 `;
 ```
+
+- 关于 grid 技巧
+  - `grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));`
+  - `grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));`
+
+![g1](./assets/grid1.png)
+![g2](./assets/grid2.png)
